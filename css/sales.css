@@ -1,0 +1,65 @@
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+h1 {
+  margin-left: 5%;
+  width: 75%;
+  text-align: center;
+  }
+
+th {
+  color: brown;
+}
+
+tfoot td {
+  border: none;
+  border-top: 2px solid black;
+
+}
+tr {
+  padding: 0;
+
+}
+
+table {
+  margin-left: 5%;
+  width: 75%;
+  border-collapse: collapse;
+  /*border: 2px solid red;*/
+}
+
+td {
+  text-align: right;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding-right: .2em;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.totalColumn{
+  font-weight: bold;
+  border-right: 1px solid black;
+}
+tfoot  {
+  border-top: 2px solid black;
+}
+
+.storename {
+  width: 15%;
+font-weight: bold;
+  text-align: right;
+  border-right: 1px solid black;
+  padding-right: 1em;
+}
+.grandtotal {
+  border: 1px solid black;
+  border-top: 2px solid black;
+}
+tr.oddRow {
+  background-color: lightgrey;
+}
+.tableHeading {
+  text-align: right;
+}

@@ -26,11 +26,13 @@ function salmonStore(storeName, minCustomersPerHour, maxCustomersPerHour, averag
     }
     console.log(this.totalCookiesPerDay);
   };
-  this.makeRow = function() {
+  this.makeRow = function(rowClass) {
     var appendRows = document.getElementById('append-rows');
     var tr = document.createElement('tr');
     var th = document.createElement('th');
+    tr.className = rowClass;
     th.textContent = this.storeName;
+    th.className = 'storename';
     tr.appendChild(th);
 
     for ( var i = 0 ; i < this.estimatedCookiesPerHour.length ; i++){
@@ -42,6 +44,7 @@ function salmonStore(storeName, minCustomersPerHour, maxCustomersPerHour, averag
     var newTd = document.createElement('td');
     newTd.value = this.totalCookiesPerDay;
     newTd.textContent = this.totalCookiesPerDay;
+    newTd.className = 'totalColumn';
     tr.appendChild(newTd);
     appendRows.appendChild(tr);
   };
@@ -58,7 +61,10 @@ storeList.push(new salmonStore('Alki', 3, 24, 2.6));
 function salesReport(){
   var allCookies = 0;
   for ( var i = 0 ; i < storeList.length ; i ++){
-    storeList[i].makeRow();
+    if ( i % 2 === 0 ){
+
+    }
+    storeList[i].makeRow( function() { if( i % 2) { return 'evenRow'; } else return 'oddRow';}() );
     allCookies += storeList[i].totalCookiesPerDay;
   }
   var myTotal = document.getElementById('append-total');
@@ -70,11 +76,13 @@ function salesReport(){
   for ( var i = 0 ; i < storeList[0].estimatedCookiesPerHour.length ; i++){
     var td = document.createElement('td');
     td.textContent = '';
+    //td.className = 'totalRow';
     tr.appendChild(td);
   }
   var newTd = document.createElement('td');
   newTd.value = allCookies;
   newTd.textContent = allCookies;
+  newTd.className = 'grandtotal';
   tr.appendChild(newTd);
   myTotal.appendChild(tr);
 
