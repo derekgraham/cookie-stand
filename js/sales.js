@@ -1,8 +1,7 @@
-'use strict';
 var storeList = [];
 
 function salmonStore(storeName, minCustomersPerHour, maxCustomersPerHour, averageCookiesPerCustomer){
-
+  'use strict';
   this.storeName = storeName;
   this.minCustomersPerHour = minCustomersPerHour;
   this.maxCustomersPerHour = maxCustomersPerHour;
@@ -38,7 +37,7 @@ function salmonStore(storeName, minCustomersPerHour, maxCustomersPerHour, averag
       var td = document.createElement('td');
       td.textContent = this.estimatedCookiesPerHour[i];
       tr.appendChild(td);
-      console.log('per hour' + this.estimatedCookiesPerHour[i]);
+    //  console.log('per hour' + this.estimatedCookiesPerHour[i]);
     }
     var newTd = document.createElement('td');
     newTd.value = this.totalCookiesPerDay;
@@ -56,6 +55,30 @@ storeList.push(new salmonStore('South Center', 11, 38, 1.9));
 storeList.push(new salmonStore('Belleuve Square', 20, 48, 3.3));
 storeList.push(new salmonStore('Alki', 3, 24, 2.6));
 
-for ( var i = 0 ; i < storeList.length ; i ++){
-  storeList[i].makeRow();
-}
+function salesReport(){
+  var allCookies = 0;
+  for ( var i = 0 ; i < storeList.length ; i ++){
+    storeList[i].makeRow();
+    allCookies += storeList[i].totalCookiesPerDay;
+  }
+  var myTotal = document.getElementById('append-total');
+  var tr = document.createElement('tr');
+  var th = document.createElement('th');
+  th.textContent = 'Total';
+  tr.appendChild(th);
+
+  for ( var i = 0 ; i < storeList[0].estimatedCookiesPerHour.length ; i++){
+    var td = document.createElement('td');
+    td.textContent = '';
+    tr.appendChild(td);
+  }
+  var newTd = document.createElement('td');
+  newTd.value = allCookies;
+  newTd.textContent = allCookies;
+  tr.appendChild(newTd);
+  myTotal.appendChild(tr);
+
+  // myTotal.textContent = allCookies;
+  // document.body.appendChild(myTotal);
+};
+salesReport();
