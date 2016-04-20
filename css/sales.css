@@ -1,3 +1,5 @@
+input[step="0"]::-webkit-inner-spin-button { -webkit-appearance: none;}
+input[step="any"]::-webkit-inner-spin-button { -webkit-appearance: none;}
 * {
   font-family: 'Source Sans Pro', sans-serif;
 
