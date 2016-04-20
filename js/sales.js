@@ -59,6 +59,8 @@ storeList.push(new salmonStore('Belleuve Square', 20, 48, 3.3));
 storeList.push(new salmonStore('Alki', 3, 24, 2.6));
 
 function salesReport(){
+  var appendRows = document.getElementById('append-rows');
+  appendRows.innerHTML = '';
   var allCookies = 0;
   for ( var i = 0 ; i < storeList.length ; i ++){
     if ( i % 2 === 0 ){
@@ -68,6 +70,7 @@ function salesReport(){
     allCookies += storeList[i].totalCookiesPerDay;
   }
   var myTotal = document.getElementById('append-total');
+  myTotal.innerHTML = null;
   var tr = document.createElement('tr');
   var th = document.createElement('th');
   th.textContent = 'Total';
@@ -101,10 +104,24 @@ var formInput = function(event){
   var maxCustomersBox = parseInt(event.target.maxCustomersBox.value);
   var avgItemBoughtBox = event.target.avgItemBoughtBox.value;
 
-  console.log(storeNameBox + ' ' + minCustomersBox + ' ' + maxCustomersBox + ' ' + avgItemBoughtBox);
-  storeList.push(new salmonStore(storeNameBox, minCustomersBox, maxCustomersBox, avgItemBoughtBox));
-  storeList[storeList.length - 1].makeRow();
-
+  //console.log(storeNameBox + ' ' + minCustomersBox + ' ' + maxCustomersBox + ' ' + avgItemBoughtBox);
+  for ( var i = 0 ; i < storeList.length ; i ++) {
+    // console.log( storeNameBox + ' ' + i + ' ' + storeList[i].storeName);
+    //console.log( typeof (storeNameBox) + ' ' + typeof storeList[i].storeName);
+    //console.log( (event.target.storeNameBox.value) === (storeList[i].storeName) );
+    if ( storeNameBox === (storeList[i].storeName) ) {
+      console.log('match with name');
+      storeList[i].minCustomersPerHour = minCustomersBox;
+      storeList[i].maxCustomersPerHour = maxCustomersBox;
+      storeList[i].averageCookiesPerCustomer = avgItemBoughtBox;
+      storeList[i].simulateCookies();
+      break;
+    } else if ( i === storeList.length - 1 ){
+      storeList.push(new salmonStore(storeNameBox, minCustomersBox, maxCustomersBox, avgItemBoughtBox));
+    }
+  };
+  //storeList[storeList.length - 1].makeRow();
+  salesReport();
   event.target.storeNameBox.value = null;
   event.target.minCustomersBox.value = null;
   event.target.maxCustomersBox.value = null;
