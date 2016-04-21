@@ -24,7 +24,7 @@ function salmonStore(storeName, minCustomersPerHour, maxCustomersPerHour, averag
     //  console.log( i + ', ' + this.estimatedCookiesPerHour[i]);
       this.totalCookiesPerDay += this.estimatedCookiesPerHour[i];
     }
-    console.log(this.totalCookiesPerDay);
+    //console.log(this.totalCookiesPerDay);
   };
   this.makeRow = function(rowClass) {
     var appendRows = document.getElementById('append-rows');
@@ -50,7 +50,7 @@ function salmonStore(storeName, minCustomersPerHour, maxCustomersPerHour, averag
   };
 
   this.simulateCookies();
-}
+};
 
 storeList.push(new salmonStore('Pike Place', 17, 88, 5.2));
 storeList.push(new salmonStore('Seatac Airport', 6, 18, 1.2));
@@ -59,6 +59,7 @@ storeList.push(new salmonStore('Belleuve Square', 20, 48, 3.3));
 storeList.push(new salmonStore('Alki', 3, 24, 2.6));
 
 function salesReport(){
+  'use strict';
   var appendRows = document.getElementById('append-rows');
   appendRows.innerHTML = '';
   var allCookies = 0;
