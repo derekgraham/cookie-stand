@@ -55,7 +55,7 @@ function salmonStore(storeName, minCustomersPerHour, maxCustomersPerHour, averag
 storeList.push(new salmonStore('Pike Place', 17, 88, 5.2));
 storeList.push(new salmonStore('Seatac Airport', 6, 18, 1.2));
 storeList.push(new salmonStore('South Center', 11, 38, 1.9));
-storeList.push(new salmonStore('Belleuve Square', 20, 48, 3.3));
+storeList.push(new salmonStore('Bellevue Square', 20, 48, 3.3));
 storeList.push(new salmonStore('Alki', 3, 24, 2.6));
 
 function salesReport(){
