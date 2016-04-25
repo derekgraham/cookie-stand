@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>How to create a resizing menu bar | Webdesigner Depot</title>
+	<meta name="author" content="Antonio Pratas">
+	<link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<style type="text/css">
+
+		/* Importing Amaranth Font for menu text */
+		@import url(http://fonts.googleapis.com/css?family=Amaranth);
+
+		header, a, img, li{
+			transition: all 1s;
+			-moz-transition: all 1s; /* Firefox 4 */
+			-webkit-transition: all 1s; /* Safari and Chrome */
+			-o-transition: all 1s; /* Opera */
+		}
+
+		/* Basic layout */
+		body{
+			background-color: #ebebeb;
+		}
+
+		ul{
+			list-style-type: none;
+			float: right;
+		}
+
+		li{
+			display: inline;
+			float: left;
+		}
+
+		img.logo{
+			float: left;
+		}
+
+
+		nav{
+			width: 960px;
+			margin: 0 auto;
+		}
+
+		section.stretch{
+			float: left;
+			height: 1500px;
+			width: 100%;
+		}
+
+			section.stretch p{
+				font-family: 'Amaranth', sans-serif;
+				font-size: 12px;
+				color: #969696;
+				text-align: center;
+				position: relative;
+				margin-top: 250px;
+			}
+
+			section.stretch p.bottom{
+				top: 100%;
+			}
+
+
+		header{
+			background: #C7C7C7;
+			border-bottom: 1px solid #aaaaaa;
+			float: left;
+			width: 100%;
+			position: fixed;
+			z-index: 10;
+		}
+
+			header a{
+				color: #969696;
+				text-decoration: none;
+				font-family: 'Amaranth', sans-serif;
+				text-transform: uppercase;
+			}
+
+			header a.active, header a:hover{
+				color: #3d3d3d;
+			}
+
+			header li{
+				margin-right: 30px;
+			}
+
+			/* Sizes for the bigger menu */
+			header.large{
+				height: 120px;
+			}
+
+			header.large img{
+				width: 489px;
+				height: 113px;
+			}
+
+			header.large li{
+				margin-top: 45px;
+
+			}
+
+
+			/* Sizes for the smaller menu */
+			header.small{
+				height: 50px;
+			}
+
+			header.small img{
+				width: 287px;
+				height: 69px;
+				margin-top: -10px;
+			}
+
+			header.small li{
+				margin-top: 17px;
+			}
+
+	</style>
+
+	<script type="text/javascript">
+		$(document).on("scroll",function(){
+			if($(document).scrollTop()>100){
+				$("header").removeClass("large").addClass("small");
+				}
+			else{
+				$("header").removeClass("small").addClass("large");
+				}
+			});
+	</script>
+
+</head>
+
+<body>
+
+<header class="large">
+		<nav>
+			<img class="logo" src="wdd.png"/>
+			<ul>
+				<li><a class="active" href="#">Home</a></li>
+				<li><a href="#">Posts</a></li>
+				<li><a href="#">Awesome Freebies</a></li>
+			</ul>
+		</nav>
+	</header>
+
+<section class="stretch">
+	        <section>
+	          <a name="locations"></a>
+	            <div class="container_">
+	                <h1>Locations</h1>
+	                <div class="locations-main">
+	                  <div class="loc1">
+	                      <p class="loc-name">Seattle Flagship</p>
+	                      <p class="loc-name">Pike Place Market</p>
+	                      <p class="loc-address"></p>
+	                      <p class="loc-phone">(206) 555-1212</p>
+	                  </div>
+	                  <div class="loc2">
+
+	                  </div>
+	                  <div class="loc3">
+
+	                  </div>
+	                  <div class="loc4">
+
+	                  </div>
+	              </div>
+	            </div>
+	        </section>
+	        <section>
+	          <a name="cookies"></a>
+	            <div class="container">
+	                <h1>Cookies</h1>
+	                <img class="imgcutter"src="img/cutter.jpeg"/><img class="imgcookie" src="img/frosted-cookie.jpg"/>
+	                <p>Cupcake ipsum dolor sit amet lollipop. Macaroon candy cotton candy bear claw macaroon carrot cake pastry icing dessert. Cupcake pastry tart sesame snaps lollipop donut pie. Cookie apple pie toffee lemon drops jelly beans cheesecake sweet roll. Jelly-o soufflé donut candy canes wafer dragée sweet cheesecake. Macaroon caramels pie cookie gummi bears. Ice cream jelly-o toffee cookie gingerbread cookie. Soufflé fruitcake jelly-o jelly chupa chups jelly beans. Dragée marzipan pastry macaroon oat cake muffin soufflé topping liquorice. Jelly-o chocolate cake lollipop.</p>
+	                <p>Sugar plum muffin cookie pastry oat cake icing candy canes chocolate. Gummi bears chupa chups fruitcake dessert jelly. Muffin cookie ice cream soufflé pastry lollipop gingerbread sweet. Unerdwear.com bonbon candy marzipan bonbon gummies chocolate cake gummi bears powder. Unerdwear.com tart halvah chocolate cake dragée liquorice. Sugar plum chocolate bar pastry liquorice dragée jelly powder. Jelly tootsie roll applicake caramels. Marzipan candy tootsie roll donut. Gummies ice cream macaroon applicake.</p>
+	            </div>
+	        </section>
+	        <section>
+	            <a name="about"></a>
+	            <div class="container">
+	                <h1>Our Story</h1>
+	                <img class="imgfamily" src="img/family.jpg"/>
+	                <p>Cupcake ipsum dolor sit amet lollipop. Macaroon candy cotton candy bear claw macaroon carrot cake pastry icing dessert. Cupcake pastry tart sesame snaps lollipop donut pie. Cookie apple pie toffee lemon drops jelly beans cheesecake sweet roll. Jelly-o soufflé donut candy canes wafer dragée sweet cheesecake. Macaroon caramels pie cookie gummi bears. Ice cream jelly-o toffee cookie gingerbread cookie. Soufflé fruitcake jelly-o jelly chupa chups jelly beans. Dragée marzipan pastry macaroon oat cake muffin soufflé topping liquorice. Jelly-o chocolate cake lollipop.</p>
+	                <p>Sugar plum muffin cookie pastry oat cake icing candy canes chocolate. Gummi bears chupa chups fruitcake dessert jelly. Muffin cookie ice cream soufflé pastry lollipop gingerbread sweet. Unerdwear.com bonbon candy marzipan bonbon gummies chocolate cake gummi bears powder. Unerdwear.com tart halvah chocolate cake dragée liquorice. Sugar plum chocolate bar pastry liquorice dragée jelly powder. Jelly tootsie roll applicake caramels. Marzipan candy tootsie roll donut. Gummies ice cream macaroon applicake.</p>
+	            </div>
+	        </section>
+	        <section>
+	          <a name="jobs">
+	            <div class="container">
+	                <h1></a>Jobs</h1>
+	                <img class="imgshirt" src="img/shirt.jpg"/>
+	                <p>Cupcake ipsum dolor sit amet lollipop. Macaroon candy cotton candy bear claw macaroon carrot cake pastry icing dessert. Cupcake pastry tart sesame snaps lollipop donut pie. Cookie apple pie toffee lemon drops jelly beans cheesecake sweet roll. Jelly-o soufflé donut candy canes wafer dragée sweet cheesecake. Macaroon caramels pie cookie gummi bears. Ice cream jelly-o toffee cookie gingerbread cookie. Soufflé fruitcake jelly-o jelly chupa chups jelly beans. Dragée marzipan pastry macaroon oat cake muffin soufflé topping liquorice. Jelly-o chocolate cake lollipop.</p>
+	                <p>Sugar plum muffin cookie pastry oat cake icing candy canes chocolate. Gummi bears chupa chups fruitcake dessert jelly. Muffin cookie ice cream soufflé pastry lollipop gingerbread sweet. Unerdwear.com bonbon candy marzipan bonbon gummies chocolate cake gummi bears powder. Unerdwear.com tart halvah chocolate cake dragée liquorice. Sugar plum chocolate bar pastry liquorice dragée jelly powder. Jelly tootsie roll applicake caramels. Marzipan candy tootsie roll donut. Gummies ice cream macaroon applicake.</p>
+	            </div>
+	        </section>
+
+<p>Let's get that menu small!</p>
+<p class="bottom">End of the line.</p>
+</section>
+
+
+</body>
+
+</html>

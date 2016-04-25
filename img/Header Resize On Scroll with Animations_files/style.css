@@ -83,10 +83,11 @@ a:hover {
 #main {
   background-color: #fff;
   padding-top: 10px;
-  position: absolute;
-  top: 300px;
+  margin-top: 300px;
 }
-
+#main.smaller {
+  top: 150px;
+}
 
 .container {
   width: 80%;
@@ -156,7 +157,6 @@ header {
   overflow: hidden;
   position: fixed;
   top: 0px;
-  margin: 0px auto;
   left: 0;
   z-index: 999;
   background-color: #0683c9;
@@ -215,12 +215,6 @@ header {
 }
     header.smaller nav a {
       line-height: 75px; }
-
-div#main.smaller {
-  position: absolute;
-  top: 150px;
-  border: 2px solid black;
-}
 
 /* =Footer
 -------------------------------------------------------------- */
